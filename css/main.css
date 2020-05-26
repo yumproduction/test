@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Manjari:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: "Manjari", sans-serif;
+}
+
+h1 {
+  font-size: calc(34px + 16 * ((100vw - 320px) / 960));
+}
+
+h2 {
+  font-size: calc(28px + 12 * ((100vw - 320px) / 960));
+}
+
+p {
+  font-size: calc(24px + 4 * ((100vw - 320px) / 960));
+}
+
+a {
+  font-size: calc(28px + 12 * ((100vw - 320px) / 960));
+  text-decoration: none;
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+}
+
+.preloader.done {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+}
+
+.load {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.load > p {
+  font-family: "Indie Flower", cursive;
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
+.loader {
+  width: 90px;
+  height: 90px;
+  border: 5px solid #e4e1ec;
+  border-radius: 50%;
+  border-top-color: #83a3b2;
+  border-bottom-color: #83a3b2;
+  margin-left: 50%;
+  transform: translate(-50%);
+  animation: 2s spin infinite linear;
+}
+
+canvas {
+  opacity: 0;
+  position: fixed;
+  -webkit-transition: 1s opacity cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+canvas.ready {
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.wrap {
+  position: relative;
+  width: 95%;
+  z-index: 78;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 767px) {
+  .wrap {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1224px) {
+  .wrap {
+    width: 60%;
+  }
+}
+
+.nav {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  width: 50%;
+  position: relative;
+  align-items: center;
+}
+.logo img {
+  width: 20%;
+}
+.logo h1 {
+  padding-left: 15px;
+}
+
+.head_menu {
+  position: fixed;
+  text-align: left;
+  top: 0;
+  right: -100%;
+  z-index: 78;
+  width: 40%;
+  height: 100%;
+  background-color: rgba(131, 163, 178, 0.6);
+  transition: all 0.6s ease 0s;
+}
+.head_menu.active {
+  right: 0;
+}
+
+.head_list {
+  text-align: left;
+  padding-top: 70px;
+  padding-left: 20px;
+  line-height: 2;
+}
+.head_list li {
+  list-style: none;
+}
+.head_list li a {
+  color: #fff;
+}
+.head_list li a:hover {
+  color: #d2b9bf;
+}
+.head_list li .local {
+  text-decoration: underline;
+}
+@media only screen and (min-width: 480px) {
+  .head_list {
+    padding-top: 100px;
+    padding-right: 20px;
+  }
+}
+@media only screen and (min-width: 1224px) {
+  .head_list {
+    padding-top: 130px;
+  }
+}
+
+.head_burger {
+  width: 30%;
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  z-index: 88;
+}
+.head_burger span {
+  background-color: #545c6b;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  top: 9px;
+  transition: all 0.6s ease 0s;
+}
+
+.head_burger:before,
+.head_burger:after {
+  content: "";
+  background-color: #545c6b;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  transition: all 0.6s ease 0s;
+}
+
+.head_burger:hover.head_burger:before {
+  background-color: #d2b9bf;
+}
+.head_burger:hover.head_burger:after {
+  background-color: #d2b9bf;
+}
+.head_burger:hover span {
+  background-color: #d2b9bf;
+}
+
+.head_burger.head_burger.active > span {
+  transform: scale(0);
+}
+
+.head_burger.active:before {
+  transform: rotate(45deg);
+  top: 9px;
+  background-color: #d2b9bf;
+}
+
+.head_burger.active:after {
+  transform: rotate(-45deg);
+  bottom: 9px;
+  background-color: #d2b9bf;
+}
+
+.head_burger:before {
+  top: 0;
+}
+
+.head_burger:after {
+  bottom: 0;
+}
+
+.slider {
+  height: 400px;
+}
+
+.content .wrap {
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.11);
+  height: 700px;
+  z-index: 10;
+}
+
+.footer {
+  height: 300px;
+  background-color: #83a3b2;
+  margin-top: 50px;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%) rotate(360deg);
+  }
+}
